@@ -20,6 +20,9 @@ jobs:
         filament: ["4", "5"]
         stability: [prefer-lowest, prefer-stable]
         exclude:
+          # Filament 5 needs Livewire 4, whose Pest plugin needs PHP 8.3 (the package itself installs on 8.2).
+          - php: "8.2"
+            filament: "5"
           # The lowest Laravel versions predate PHP 8.5.
           - php: "8.5"
             stability: prefer-lowest
@@ -54,7 +57,7 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress -W
 
       - name: Installed versions
-        run: composer show filament/filament livewire/livewire laravel/framework pestphp/pest | grep -E "^(name|versions)"
+        run: composer show | grep -E "^(filament/filament|livewire/livewire|laravel/framework|pestphp/pest) "
 
       - name: Run tests
         run: vendor/bin/pest
