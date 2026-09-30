@@ -43,3 +43,24 @@ it('shows percentages, a zero row and labels', function () {
         ->toContain('title="Okay"')
         ->toContain('2 stars (Okay):');
 });
+
+it('fills each row with its own color from colors()', function () {
+    Review::create(['title' => 'Review', 'score' => 5]);
+
+    $html = reviewsTable(fn () => [
+        TextColumn::make('title'),
+        RatingColumn::make('score')
+            ->colors([1 => 'danger', 4 => 'success'])
+            ->summarize(RatingDistribution::make()),
+    ])->html();
+
+    preg_match_all('/<li\s+class="fi-rating-distribution-row"\s+style="([^"]*)"/', $html, $styles);
+
+    expect($styles[1])->toHaveCount(5)
+        ->and($styles[1][0])->toContain('--fi-rating-color-500:var(--success-500)')
+        ->and($styles[1][4])->toContain('--fi-rating-color-500:var(--danger-500)');
+
+    // The fill is resolved on the row itself, so the row's colors win over the list's.
+    $css = file_get_contents(__DIR__.'/../../resources/dist/filament-rating.css');
+    expect($css)->toMatch('/\.fi-rating-distribution \.fi-rating-distribution-row \{\s*--fi-rating-filled: var\(--fi-rating-color-500/');
+});

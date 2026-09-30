@@ -6,15 +6,15 @@ It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.
 
 ## Features
 
-- **Form field** `Rating`: click, hover preview, arrow keys / Home / End, optional half stars (`allowHalf()`), zero (`allowZero()`), `clearable()`, `readOnly()`, `disabled()`.
-- **Table column** `RatingColumn` and **infolist entry** `RatingEntry`: exact partial fill for averages (3.7 fills 70% of the fourth star), `showValue()`, `showCount()`, `precision()`, tooltips and placeholders.
-- **Editable column** `RatingInputColumn`: rate records straight from the table; each click is validated and saved.
-- **Labels** `labels([1 => 'Poor', …, 5 => 'Excellent'])`: the field shows the hovered rating's word, screen readers announce it, and displays can show it with `showLabel()`.
-- **Colors by value** `colors([1 => 'danger', 3 => 'warning', 4 => 'success'])`: in the field the color follows the hover.
-- **Summarizers** `RatingAverage` (the column's average drawn as stars) and `RatingDistribution` (a bar per rating, like a store's review breakdown), both using the column's settings.
-- **Filter** `RatingFilter`: "4 stars & up", or one exact rating.
+- **[Form field](#form-field)** `Rating`: click, hover preview, arrow keys / Home / End, optional half stars (`allowHalf()`), zero (`allowZero()`), `clearable()`, `readOnly()`, `disabled()`.
+- **[Table column](#table-column)** `RatingColumn` and **[infolist entry](#infolist-entry)** `RatingEntry`: exact partial fill for averages (3.7 fills 70% of the fourth star), `showValue()`, `showCount()`, `precision()`, tooltips and placeholders.
+- **[Editable column](#editable-table-column)** `RatingInputColumn`: rate records straight from the table; each click is validated and saved.
+- **[Labels](#labels)** `labels([1 => 'Poor', …, 5 => 'Excellent'])`: the field shows the hovered rating's word, screen readers announce it, and displays can show it with `showLabel()`.
+- **[Colors by value](#colors-by-value)** `colors([1 => 'danger', 3 => 'warning', 4 => 'success'])`: in the field the color follows the hover.
+- **[Summarizers](#average-summarizer)** `RatingAverage` (the column's average drawn as stars) and `RatingDistribution` (a bar per rating, like a store's review breakdown), both using the column's settings.
+- **[Filter](#filter)** `RatingFilter`: "4 stars & up", or one exact rating.
 - **Validation included**: `numeric`, `min` (0 or the first step), `max` (the number of stars), and `integer` or `multiple_of:0.5`.
-- **Any color, any icon**: Filament color names, Tailwind palette names (`amber`), `Color::*` palettes or hex, with no Tailwind classes needed. Icons can be overridden per component or app-wide through Filament's icon aliases.
+- **[Any color, any icon](#customization)**: Filament color names, Tailwind palette names (`amber`), `Color::*` palettes or hex, with no Tailwind classes needed. Icons can be overridden per component or app-wide through Filament's icon aliases.
 - **Accessible**: `radiogroup` / `radio` (or `slider` in half-star mode), a roving tab stop, a visible focus ring, and "3 of 5 stars" labels for screen readers.
 - **Works anywhere Filament does**: inside panels and in standalone Livewire forms, on Filament 4 (Livewire 3) and Filament 5 (Livewire 4). Every option accepts a closure.
 - **Translated**: English and Romanian included.
@@ -40,6 +40,8 @@ Outside a panel (a plain Livewire component using Filament forms), the assets lo
 
 ### Form field
 
+![The rating field in a Filament form: four stars hovered, green, with the label "Very good"](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/field.png)
+
 ```php
 use Packstub\FilamentRating\Components\Rating;
 
@@ -64,6 +66,8 @@ Rating::make('rating')
 Keyboard: arrow keys move by one step (they follow the reading direction in RTL), Home and End jump to the minimum and maximum, and Delete or Backspace clears when `clearable()`.
 
 ### Table column
+
+![A products table: each product's average customer rating as partially filled stars with the value and the number of reviews, and a team score rated right in the table](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/products.png)
 
 ```php
 use Packstub\FilamentRating\Columns\RatingColumn;
@@ -132,6 +136,8 @@ It takes every column option (stars, half stars, colors, labels, icons, size) pl
 
 ### Filter
 
+![The reviews table filtered to "4 stars & up"](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/filter.png)
+
 ```php
 use Packstub\FilamentRating\Filters\RatingFilter;
 
@@ -157,6 +163,8 @@ RatingColumn::make('rating')
 
 ### Rating distribution
 
+![Reviews with stars colored by value, and the summary: the average as stars and a bar per rating](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/table.png)
+
 ```php
 use Packstub\FilamentRating\Summarizers\RatingDistribution;
 
@@ -171,6 +179,8 @@ RatingColumn::make('rating')
 `RatingDistribution` draws a bar for each rating from the highest down, with its count (or share with `percentages()`). Half ratings count toward the star they fill, and a zero row is added with `allowZero()`. It takes the column's stars, colors (including `colors()`), icon and labels.
 
 ### Infolist entry
+
+![A review's page: the rating entry with its label, "Excellent"](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/entry.png)
 
 ```php
 use Packstub\FilamentRating\Entries\RatingEntry;
@@ -212,6 +222,8 @@ FilamentIcon::register([
     RatingIcon::StarEmpty => 'heroicon-o-heart',
 ]);
 ```
+
+![The reviews table in dark mode](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/dark.png)
 
 The stars use their own plain CSS, so there's nothing to add to a custom theme. If you style the `fi-rating-*` classes with Tailwind in your theme, add the views to its sources:
 

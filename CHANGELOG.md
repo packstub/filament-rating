@@ -2,6 +2,10 @@
 
 All notable changes to `packstub/filament-rating` are documented here.
 
+## Unreleased
+
+- `RatingDistribution`: each bar and star now takes its own color from `colors()` (they all used the base color).
+
 ## 0.2.0 — 2026-09-30
 
 - `RatingInputColumn`: rate records straight from the table, validated and saved on click, with `clearable()`, `disabled()` and the usual state update hooks (mokhosh/filament-rating#11).
