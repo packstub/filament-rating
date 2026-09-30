@@ -2,7 +2,7 @@
 
 All notable changes to `packstub/filament-rating` are documented here.
 
-## Unreleased
+## 0.2.0 — 2026-09-30
 
 - `RatingInputColumn`: rate records straight from the table, validated and saved on click, with `clearable()`, `disabled()` and the usual state update hooks (mokhosh/filament-rating#11).
 - `labels()`: a word per rating, shown next to the field's stars while hovering, announced by screen readers, and shown in displays with `showLabel()`.
