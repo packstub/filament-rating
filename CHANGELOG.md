@@ -1,0 +1,16 @@
+# Changelog
+
+All notable changes to `packstub/filament-rating` are documented here.
+
+## 0.1.0 — 2026-09-30
+
+First release.
+
+- `Rating` form field, `RatingColumn`, `RatingEntry` and the `RatingAverage` summarizer for Filament 4 (Livewire 3) and Filament 5 (Livewire 4).
+- Drop-in API of `mokhosh/filament-rating` v2, with lazy `Mokhosh\FilamentRating\...` class aliases.
+- Half stars (`allowHalf()`), `clearable()`, `readOnly()`, hover preview, keyboard control, and `radiogroup` / `slider` semantics with screen-reader labels.
+- Partial fill for decimals, `showValue()`, `precision()`, `showCount()`, placeholders and tooltips in columns and entries.
+- Automatic `numeric`, `min`, `max` and `integer` / `multiple_of:0.5` validation.
+- Colors from Filament names, Tailwind palette names, `Color::*` palettes or hex; icons via `icon()`, `emptyIcon()` and `RatingIcon` aliases.
+- Plain CSS and a hand-written Alpine component, registered as Filament assets: no npm build, and it works in standalone Livewire forms.
+- English and Romanian translations; dark mode and RTL.

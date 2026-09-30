@@ -1,0 +1,92 @@
+{
+    "name": "packstub/filament-rating",
+    "description": "Star ratings for Filament v4 and v5: a form field, table column, infolist entry and average summarizer. Half stars, keyboard and screen-reader support, drop-in for mokhosh/filament-rating.",
+    "keywords": [
+        "packstub",
+        "laravel",
+        "filament",
+        "filament-plugin",
+        "filament-v4",
+        "filament-v5",
+        "filament-rating",
+        "rating",
+        "star-rating",
+        "stars",
+        "livewire"
+    ],
+    "homepage": "https://github.com/packstub/filament-rating",
+    "support": {
+        "issues": "https://github.com/packstub/filament-rating/issues",
+        "source": "https://github.com/packstub/filament-rating",
+        "docs": "https://packstub.dev/docs/filament-rating"
+    },
+    "license": "MIT",
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/icaliman"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Ion Caliman",
+            "email": "icaliman92@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Packstub",
+            "email": "support@packstub.dev",
+            "homepage": "https://packstub.dev"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "filament/filament": "^4.0 || ^5.0",
+        "spatie/laravel-package-tools": "^1.92"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^9.0 || ^10.0 || ^11.0",
+        "pestphp/pest": "^3.8 || ^4.0",
+        "pestphp/pest-plugin-livewire": "^3.0 || ^4.0",
+        "rector/rector": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Packstub\\FilamentRating\\": "src/"
+        },
+        "files": [
+            "src/compat/mokhosh.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Packstub\\FilamentRating\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:filter": "pest --filter",
+        "lint": "pint",
+        "lint:test": "pint --test",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "refactor": "rector",
+        "refactor:test": "rector --dry-run"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Packstub\\FilamentRating\\FilamentRatingServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
