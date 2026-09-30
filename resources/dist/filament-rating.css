@@ -231,7 +231,9 @@
     list-style: none;
 }
 
+/* Each row sets its own --fi-rating-color-* (colors by value), so resolve the fill per row. */
 .fi-rating-distribution .fi-rating-distribution-row {
+    --fi-rating-filled: var(--fi-rating-color-500, var(--primary-500));
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -276,6 +278,10 @@
     min-width: 2rem;
     text-align: end;
     color: var(--gray-500);
+}
+
+:where(.dark) .fi-rating-distribution .fi-rating-distribution-row {
+    --fi-rating-filled: var(--fi-rating-color-400, var(--primary-400));
 }
 
 :where(.dark) .fi-rating-distribution .fi-rating-distribution-rating {
