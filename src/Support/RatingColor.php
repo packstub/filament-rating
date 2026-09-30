@@ -21,15 +21,30 @@ final class RatingColor
      */
     public static function cssVariables(string|array $color, string $prefix): string
     {
-        $palette = self::palette($color);
-
         $css = '';
 
-        foreach (self::SHADES as $shade) {
-            $css .= "--{$prefix}-{$shade}:{$palette[$shade]};";
+        foreach (self::variables($color, $prefix) as $name => $value) {
+            $css .= "{$name}:{$value};";
         }
 
         return $css;
+    }
+
+    /**
+     * @param  string | array<int | string, string>  $color
+     * @return array<string, string>
+     */
+    public static function variables(string|array $color, string $prefix): array
+    {
+        $palette = self::palette($color);
+
+        $variables = [];
+
+        foreach (self::SHADES as $shade) {
+            $variables["--{$prefix}-{$shade}"] = $palette[$shade];
+        }
+
+        return $variables;
     }
 
     /**

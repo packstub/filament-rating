@@ -188,3 +188,104 @@
     flex-direction: column;
     gap: 0.25rem;
 }
+
+/* Labels from labels() */
+
+.fi-rating .fi-rating-label {
+    margin-inline-start: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--gray-700);
+}
+
+:where(.dark) .fi-rating .fi-rating-label {
+    color: var(--gray-300);
+}
+
+.fi-rating-field .fi-rating-label:empty {
+    display: none;
+}
+
+/* Editable table column */
+
+.fi-rating-column-input.fi-rating-loading {
+    opacity: 0.7;
+}
+
+.fi-rating-column-input.fi-rating-invalid .fi-rating-stars {
+    outline: 2px solid var(--danger-500);
+    outline-offset: 2px;
+}
+
+/* Distribution summarizer */
+
+.fi-rating.fi-rating-distribution {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    min-width: 10rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fi-rating-distribution .fi-rating-distribution-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.fi-rating-distribution .fi-rating-distribution-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    min-width: 1.75rem;
+    color: var(--gray-700);
+}
+
+.fi-rating-distribution .fi-rating-distribution-rating .fi-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--fi-rating-filled);
+}
+
+.fi-rating-distribution .fi-rating-distribution-bar {
+    position: relative;
+    flex: 1;
+    height: 0.5rem;
+    min-width: 4rem;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: var(--gray-100);
+}
+
+.fi-rating-distribution .fi-rating-distribution-bar > span {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    border-radius: inherit;
+    background: var(--fi-rating-filled);
+}
+
+.fi-rating-distribution .fi-rating-distribution-count {
+    min-width: 2rem;
+    text-align: end;
+    color: var(--gray-500);
+}
+
+:where(.dark) .fi-rating-distribution .fi-rating-distribution-rating {
+    color: var(--gray-300);
+}
+
+:where(.dark) .fi-rating-distribution .fi-rating-distribution-bar {
+    background: var(--gray-800);
+}
+
+:where(.dark) .fi-rating-distribution .fi-rating-distribution-count {
+    color: var(--gray-400);
+}

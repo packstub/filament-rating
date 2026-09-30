@@ -21,6 +21,6 @@ composer refactor           # Rector
 
 ## Conventions
 
-- One codebase for Filament 4.0+ and 5.x: only use Filament APIs that exist in 4.0.0 (for example `Illuminate\View\ComponentAttributeBag`, not Filament's), and check `--prefer-lowest` on Filament 4.0.0 before a release.
+- One codebase for Filament 4.x and 5.x: only use Filament APIs that exist in the lowest 4.x Composer installs (for example `Illuminate\View\ComponentAttributeBag`, not Filament's); CI's `prefer-lowest` job covers it.
 - Testbench caches compiled views across installs: clear `vendor/orchestra/testbench-core/laravel/storage/framework/views` after switching Filament versions.
 - Every change needs a test; keep `CHANGELOG.md` current.

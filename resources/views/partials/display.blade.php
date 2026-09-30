@@ -12,7 +12,7 @@
 @endphp
 
 <div
-    {{ ($attributes ?? new ComponentAttributeBag)->class(['fi-rating', 'fi-rating-display', "fi-rating-size-{$size}"])->merge(['style' => $component->getColorStyle()], escape: false) }}
+    {{ ($attributes ?? new ComponentAttributeBag)->class(['fi-rating', 'fi-rating-display', "fi-rating-size-{$size}"])->merge(['style' => $component->getColorStyle($state)], escape: false) }}
 >
     <span class="fi-rating-stars" role="img" aria-label="{{ $label }}">
         @if ($component->shouldAllowZero())
@@ -30,6 +30,10 @@
 
     @if ($component->shouldShowValue() && ($state !== null))
         <span class="fi-rating-value" aria-hidden="true">{{ $component->formatRatingValue($state) }}</span>
+    @endif
+
+    @if ($component->shouldShowLabel() && filled($ratingLabel = $component->getLabelFor($state)))
+        <span class="fi-rating-label" aria-hidden="true">{{ $ratingLabel }}</span>
     @endif
 
     @if ($count !== null)

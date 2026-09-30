@@ -17,6 +17,8 @@ trait DisplaysRating
 
     protected int|Closure|null $count = null;
 
+    protected bool|Closure $showLabel = false;
+
     /**
      * Show the number next to the stars, e.g. "4.5".
      */
@@ -62,6 +64,21 @@ trait DisplaysRating
         $count = $this->evaluate($this->count);
 
         return filled($count) ? (int) $count : null;
+    }
+
+    /**
+     * Show the rating's label from `labels()` next to the stars, e.g. "Very good".
+     */
+    public function showLabel(bool|Closure $condition = true): static
+    {
+        $this->showLabel = $condition;
+
+        return $this;
+    }
+
+    public function shouldShowLabel(): bool
+    {
+        return (bool) $this->evaluate($this->showLabel);
     }
 
     public function getDefaultShowValue(): bool
@@ -126,9 +143,15 @@ trait DisplaysRating
             return __('filament-rating::rating.not_rated');
         }
 
-        return trans_choice('filament-rating::rating.value_of_max', $this->getStars(), [
+        $text = trans_choice('filament-rating::rating.value_of_max', $this->getStars(), [
             'value' => $this->formatRatingValue($state),
             'max' => $this->getStars(),
         ]);
+
+        if (filled($label = $this->getLabelFor($state))) {
+            return __('filament-rating::rating.labelled', ['label' => $label, 'value' => $text]);
+        }
+
+        return $text;
     }
 }
