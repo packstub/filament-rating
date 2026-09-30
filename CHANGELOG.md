@@ -2,6 +2,15 @@
 
 All notable changes to `packstub/filament-rating` are documented here.
 
+## Unreleased
+
+- `RatingInputColumn`: rate records straight from the table, validated and saved on click, with `clearable()`, `disabled()` and the usual state update hooks (mokhosh/filament-rating#11).
+- `labels()`: a word per rating, shown next to the field's stars while hovering, announced by screen readers, and shown in displays with `showLabel()`.
+- `colors()`: color the stars by value (`[1 => 'danger', 3 => 'warning', 4 => 'success']`); in the field the color follows the hover.
+- `RatingFilter`: "4 stars & up" table filter, or one exact rating with `exact()`.
+- `RatingDistribution` summarizer: a bar per rating with counts or `percentages()`.
+- Summarizers also inherit the column's `labels()` and `colors()`.
+
 ## 0.1.0 — 2026-09-30
 
 First release.

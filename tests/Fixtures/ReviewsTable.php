@@ -21,11 +21,14 @@ class ReviewsTable extends Component implements HasActions, HasSchemas, HasTable
 
     public static ?Closure $columns = null;
 
+    public static ?Closure $filters = null;
+
     public function table(Table $table): Table
     {
         return $table
             ->query(Review::query())
-            ->columns((static::$columns)());
+            ->columns((static::$columns)())
+            ->filters(static::$filters ? (static::$filters)() : []);
     }
 
     public function render(): View

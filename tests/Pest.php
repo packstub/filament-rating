@@ -23,10 +23,12 @@ function ratingForm(Closure $components): Testable
 
 /**
  * @param  Closure(): array<mixed>  $columns
+ * @param  (Closure(): array<mixed>)|null  $filters
  */
-function reviewsTable(Closure $columns): Testable
+function reviewsTable(Closure $columns, ?Closure $filters = null): Testable
 {
     ReviewsTable::$columns = $columns;
+    ReviewsTable::$filters = $filters;
 
     return livewire(ReviewsTable::class);
 }

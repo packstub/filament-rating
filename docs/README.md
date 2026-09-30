@@ -1,6 +1,6 @@
 # Filament Rating
 
-Star ratings for Filament v4 and v5: a form field, a table column, an infolist entry and an average summarizer. It supports half stars, keyboard and screen readers, dark mode and RTL, and needs no npm build.
+Star ratings for Filament v4 and v5: a form field, a table column you can rate from, an infolist entry, a rating filter, and average and distribution summarizers. It supports half stars, labels, colors by value, keyboard and screen readers, dark mode and RTL, and needs no npm build.
 
 It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.com/mokhosh/filament-rating): the same methods, the same data, and the old `Mokhosh\FilamentRating\...` imports keep working (see [Migrating from mokhosh/filament-rating](#migrating-from-mokhoshfilament-rating)).
 
@@ -8,7 +8,11 @@ It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.
 
 - **Form field** `Rating`: click, hover preview, arrow keys / Home / End, optional half stars (`allowHalf()`), zero (`allowZero()`), `clearable()`, `readOnly()`, `disabled()`.
 - **Table column** `RatingColumn` and **infolist entry** `RatingEntry`: exact partial fill for averages (3.7 fills 70% of the fourth star), `showValue()`, `showCount()`, `precision()`, tooltips and placeholders.
-- **Summarizer** `RatingAverage`: the column's average drawn as stars, using the column's settings.
+- **Editable column** `RatingInputColumn`: rate records straight from the table; each click is validated and saved.
+- **Labels** `labels([1 => 'Poor', …, 5 => 'Excellent'])`: the field shows the hovered rating's word, screen readers announce it, and displays can show it with `showLabel()`.
+- **Colors by value** `colors([1 => 'danger', 3 => 'warning', 4 => 'success'])`: in the field the color follows the hover.
+- **Summarizers** `RatingAverage` (the column's average drawn as stars) and `RatingDistribution` (a bar per rating, like a store's review breakdown), both using the column's settings.
+- **Filter** `RatingFilter`: "4 stars & up", or one exact rating.
 - **Validation included**: `numeric`, `min` (0 or the first step), `max` (the number of stars), and `integer` or `multiple_of:0.5`.
 - **Any color, any icon**: Filament color names, Tailwind palette names (`amber`), `Color::*` palettes or hex, with no Tailwind classes needed. Icons can be overridden per component or app-wide through Filament's icon aliases.
 - **Accessible**: `radiogroup` / `radio` (or `slider` in half-star mode), a roving tab stop, a visible focus ring, and "3 of 5 stars" labels for screen readers.
@@ -81,6 +85,63 @@ RatingColumn::make('reviews_avg_rating')
     ->tooltip(fn ($state): string => "Average of {$state}");
 ```
 
+### Labels
+
+Give each rating a word. The field shows the word of the hovered or picked rating next to the stars, and every star is announced as "Very good, 4 of 5 stars":
+
+```php
+Rating::make('rating')
+    ->labels([
+        1 => 'Poor',
+        2 => 'Fair',
+        3 => 'Good',
+        4 => 'Very good',
+        5 => 'Excellent',
+    ]);
+```
+
+With `allowHalf()`, half values can have their own label (`'3.5' => 'Pretty good'`). Columns, entries and summarizers use the labels for screen readers, and `showLabel()` prints the label of the nearest rating next to the stars (an average of 3.7 shows "Very good").
+
+### Colors by value
+
+```php
+Rating::make('rating')
+    ->colors([
+        1 => 'danger',   // 1 and 2
+        3 => 'warning',  // 3
+        4 => 'success',  // 4 and 5
+    ]);
+```
+
+Each key is the lowest rating that uses its color; ratings below the lowest key use `color()`. In the field, the color follows the hover. Any value `color()` accepts works here too.
+
+### Editable table column
+
+`RatingInputColumn` lets people rate records right in the table, like Filament's `ToggleColumn`. A click is validated (the same rules as the field) and saved to the record, and an invalid value is rolled back with the error shown on the stars.
+
+```php
+use Packstub\FilamentRating\Columns\RatingInputColumn;
+
+RatingInputColumn::make('rating')
+    ->clearable()
+    ->disabled(fn (Review $record): bool => auth()->user()->cannot('update', $record))
+    ->afterStateUpdated(fn (Review $record, ?int $state) => $record->touch());
+```
+
+It takes every column option (stars, half stars, colors, labels, icons, size) plus `rules()`, `beforeStateUpdated()`, `afterStateUpdated()` and `updateStateUsing()`. Like Filament's own editable columns it does not check model policies, so use `disabled()` to decide who may change a rating.
+
+### Filter
+
+```php
+use Packstub\FilamentRating\Filters\RatingFilter;
+
+RatingFilter::make('rating');                    // 5 stars, 4 stars & up, … 1 star & up
+RatingFilter::make('rating')->stars(10);
+RatingFilter::make('rating')->exact();           // 5 stars, 4 stars, …
+```
+
+`RatingFilter` is a `SelectFilter`, so its options work as usual (`label()`, `default()`, `query()`). With `exact()`, half ratings count toward the star they fill (3.5 matches 3).
+
 ### Average summarizer
 
 ```php
@@ -93,6 +154,21 @@ RatingColumn::make('rating')
 ```
 
 `RatingAverage` draws the column's average as stars with the value next to them. It takes the column's stars, colors, icons and size unless you set them on the summarizer.
+
+### Rating distribution
+
+```php
+use Packstub\FilamentRating\Summarizers\RatingDistribution;
+
+RatingColumn::make('rating')
+    ->summarize([
+        RatingAverage::make(),
+        RatingDistribution::make(),                 // counts per rating
+        // RatingDistribution::make()->percentages(), // "40%" instead of counts
+    ]);
+```
+
+`RatingDistribution` draws a bar for each rating from the highest down, with its count (or share with `percentages()`). Half ratings count toward the star they fill, and a zero row is added with `allowZero()`. It takes the column's stars, colors (including `colors()`), icon and labels.
 
 ### Infolist entry
 
@@ -119,8 +195,11 @@ All options are available on the field, the column, the entry and the summarizer
 | `icon(...)` | solid star | Any icon Filament accepts: a Blade icon name, a `Heroicon` case, an `Htmlable`. |
 | `emptyIcon(...)` | the filled icon | For example `emptyIcon('heroicon-o-star')` for outlined empty stars. |
 | `theme(RatingTheme)` | `Simple` | `HalfStars`: half steps in the field and rounded-down halves in displays (kept from mokhosh). |
-| `showValue()`, `precision(int)`, `showCount(int)` | off, `1`, none | Column, entry and summarizer only. |
-| `clearable()`, `readOnly()` | off | Field only. |
+| `colors(array)` | none | Color per rating: `[min rating => color]`. |
+| `labels(array)` | none | A word per rating, used by the field's caption and screen readers. |
+| `showValue()`, `precision(int)`, `showCount(int)`, `showLabel()` | off, `1`, none, off | Column, entry and summarizer only. |
+| `clearable()` | off | Field and `RatingInputColumn`. |
+| `readOnly()` | off | Field only. |
 
 To change the icons everywhere, register their aliases in a service provider:
 
