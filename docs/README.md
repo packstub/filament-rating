@@ -6,18 +6,14 @@ It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.
 
 ## Features
 
-- **[Form field](#form-field)** `Rating`: click, hover preview, arrow keys / Home / End, optional half stars (`allowHalf()`), zero (`allowZero()`), `clearable()`, `readOnly()`, `disabled()`.
-- **[Table column](#table-column)** `RatingColumn` and **[infolist entry](#infolist-entry)** `RatingEntry`: exact partial fill for averages (3.7 fills 70% of the fourth star), `showValue()`, `showCount()`, `precision()`, tooltips and placeholders.
-- **[Editable column](#editable-table-column)** `RatingInputColumn`: rate records straight from the table; each click is validated and saved.
-- **[Labels](#labels)** `labels([1 => 'Poor', …, 5 => 'Excellent'])`: the field shows the hovered rating's word, screen readers announce it, and displays can show it with `showLabel()`.
-- **[Colors by value](#colors-by-value)** `colors([1 => 'danger', 3 => 'warning', 4 => 'success'])`: in the field the color follows the hover.
-- **[Summarizers](#average-summarizer)** `RatingAverage` (the column's average drawn as stars) and `RatingDistribution` (a bar per rating, like a store's review breakdown), both using the column's settings.
-- **[Filter](#filter)** `RatingFilter`: "4 stars & up", or one exact rating.
-- **Validation included**: `numeric`, `min` (0 or the first step), `max` (the number of stars), and `integer` or `multiple_of:0.5`.
-- **[Any color, any icon](#customization)**: Filament color names, Tailwind palette names (`amber`), `Color::*` palettes or hex, with no Tailwind classes needed. Icons can be overridden per component or app-wide through Filament's icon aliases.
-- **Accessible**: `radiogroup` / `radio` (or `slider` in half-star mode), a roving tab stop, a visible focus ring, and "3 of 5 stars" labels for screen readers.
-- **Works anywhere Filament does**: inside panels and in standalone Livewire forms, on Filament 4 (Livewire 3) and Filament 5 (Livewire 4). Every option accepts a closure.
-- **Translated**: English and Romanian included.
+- **[Form field](#form-field)**: click or use the keyboard to rate, with half stars, zero and a clear button when you want them.
+- **[Table column and infolist entry](#table-column)**: averages drawn as partly filled stars, with the value and the number of ratings.
+- **[Rate from the table](#editable-table-column)**: an editable column that saves each click.
+- **[Labels](#labels) and [colors by value](#colors-by-value)**: a word per rating ("Poor" to "Excellent") and a color that follows it.
+- **[Summarizers](#average-summarizer)**: the column's average as stars, or a bar per rating like a store's review breakdown.
+- **[Filter](#filter)**: "4 stars & up", or one exact rating.
+- **[Any color, any icon](#customization)**: Filament colors, Tailwind palette names or hex, and your own icons, with no theme build.
+- **Ready for everyone**: validation built in, keyboard and screen reader support, dark mode, RTL, English and Romanian.
 
 ## Compatibility
 
@@ -64,6 +60,8 @@ Rating::make('rating')
 ```
 
 Keyboard: arrow keys move by one step (they follow the reading direction in RTL), Home and End jump to the minimum and maximum, and Delete or Backspace clears when `clearable()`.
+
+The field validates itself: `numeric`, `min` (0 or the first step), `max` (the number of stars), and `integer` or `multiple_of:0.5`. Screen readers get a `radiogroup` of `radio` buttons (a `slider` in half-star mode) with "3 of 5 stars" labels, the stars take one tab stop, and the focused star shows a ring.
 
 ### Table column
 
@@ -230,6 +228,8 @@ The stars use their own plain CSS, so there's nothing to add to a custom theme. 
 ```css
 @source '../../../../vendor/packstub/filament-rating/resources/views/**/*';
 ```
+
+The strings (screen reader labels, the clear button, the filter and summarizer captions) live in a language file, with English and Romanian included. Publish them with `php artisan vendor:publish --tag=filament-rating-translations`.
 
 ## Migrating from mokhosh/filament-rating
 

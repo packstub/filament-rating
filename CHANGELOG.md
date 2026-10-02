@@ -5,6 +5,7 @@ All notable changes to `packstub/filament-rating` are documented here.
 ## Unreleased
 
 - `RatingDistribution`: each bar and star now takes its own color from `colors()` (they all used the base color).
+- Docs: a shorter Features list, one line per area; validation, screen reader support and translations are described under Form field and Customization.
 
 ## 0.2.0 — 2026-09-30
 
