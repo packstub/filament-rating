@@ -148,6 +148,8 @@ RatingFilter::make('rating')->exact();           // 5 stars, 4 stars, …
 
 ### Average summarizer
 
+![The reviews table with its summary: the average rating as partly filled stars with the value](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/average.png)
+
 ```php
 use Packstub\FilamentRating\Summarizers\RatingAverage;
 
@@ -161,20 +163,16 @@ RatingColumn::make('rating')
 
 ### Rating distribution
 
-![Reviews with stars colored by value, and the summary: the average as stars and a bar per rating](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/table.png)
+![The reviews table with its summary: a bar per rating with its count, from five stars down](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/distribution.png)
 
 ```php
 use Packstub\FilamentRating\Summarizers\RatingDistribution;
 
 RatingColumn::make('rating')
-    ->summarize([
-        RatingAverage::make(),
-        RatingDistribution::make(),                 // counts per rating
-        // RatingDistribution::make()->percentages(), // "40%" instead of counts
-    ]);
+    ->summarize(RatingDistribution::make()); // ->percentages() for "40%" instead of counts
 ```
 
-`RatingDistribution` draws a bar for each rating from the highest down, with its count (or share with `percentages()`). Half ratings count toward the star they fill, and a zero row is added with `allowZero()`. It takes the column's stars, colors (including `colors()`), icon and labels.
+Pass both summarizers (`->summarize([RatingAverage::make(), RatingDistribution::make()])`) to show the average above the bars. `RatingDistribution` draws a bar for each rating from the highest down, with its count (or share with `percentages()`). Half ratings count toward the star they fill, and a zero row is added with `allowZero()`. It takes the column's stars, colors (including `colors()`), icon and labels.
 
 ### Infolist entry
 
@@ -221,7 +219,7 @@ FilamentIcon::register([
 ]);
 ```
 
-![The reviews table in dark mode](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/dark.png)
+![The reviews table in dark mode, its ratings drawn as hearts through the icon aliases](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/icons.png)
 
 The stars use their own plain CSS, so there's nothing to add to a custom theme. If you style the `fi-rating-*` classes with Tailwind in your theme, add the views to its sources:
 
