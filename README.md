@@ -8,6 +8,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/packstub/filament-rating/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/packstub/filament-rating/actions/workflows/tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/packstub/filament-rating.svg?style=flat-square)](https://packagist.org/packages/packstub/filament-rating)
 [![License](https://img.shields.io/packagist/l/packstub/filament-rating.svg?style=flat-square)](https://github.com/packstub/filament-rating/blob/main/LICENSE.md)
+[![Listed on filamentphp.com](https://img.shields.io/badge/filamentphp.com-listed-fb7185?style=flat-square&logo=filament&logoColor=white)](https://filamentphp.com/plugins/packstub-rating)
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-ea4aaa?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/icaliman)
 
 </div>
@@ -15,6 +16,8 @@
 Star ratings for Filament v4 and v5: a form field, a table column you can rate from, an infolist entry, a rating filter, and average and distribution summarizers. It supports half stars, labels, colors by value, keyboard and screen readers, dark mode and RTL, and needs no npm build.
 
 It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.com/mokhosh/filament-rating): the same methods, the same data, and the old `Mokhosh\FilamentRating\...` imports keep working (see [Migrating from mokhosh/filament-rating](#migrating-from-mokhoshfilament-rating)).
+
+![Star ratings in Filament: the review form's stars hovered one by one, the label and color following, four given; then a team score rated straight from the products table](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/rating.gif)
 
 ## Features
 

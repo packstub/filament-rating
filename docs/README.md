@@ -4,6 +4,8 @@ Star ratings for Filament v4 and v5: a form field, a table column you can rate f
 
 It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.com/mokhosh/filament-rating): the same methods, the same data, and the old `Mokhosh\FilamentRating\...` imports keep working (see [Migrating from mokhosh/filament-rating](#migrating-from-mokhoshfilament-rating)).
 
+![Star ratings in Filament: the review form's stars hovered one by one, the label and color following, four given; then a team score rated straight from the products table](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/rating.gif)
+
 ## Features
 
 - **[Form field](#form-field)**: click or use the keyboard to rate, with half stars, zero and a clear button when you want them.
