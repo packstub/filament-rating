@@ -6,6 +6,7 @@ All notable changes to `packstub/filament-rating` are documented here.
 
 - Each bar and star of `RatingDistribution` takes its own color from `colors()` (they all used the base color)
 - A shorter Features list in the docs, and screenshots that show one feature each
+- `composer.json`'s homepage points at the package's page on packstub.dev
 
 ## 0.2.0 — 2026-09-30
 
