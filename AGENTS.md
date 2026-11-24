@@ -1,6 +1,6 @@
 # packstub/filament-rating
 
-Free (MIT) Filament v4 + v5 plugin: star rating form field, table column, infolist entry and average summarizer; drop-in for `mokhosh/filament-rating` v2.
+Free (MIT) Filament v4 + v5 plugin: star rating form field, table column (read-only or editable), infolist entry, filter, average and distribution summarizers; drop-in for `mokhosh/filament-rating` v2.
 
 ## Commands
 

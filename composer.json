@@ -1,6 +1,6 @@
 {
     "name": "packstub/filament-rating",
-    "description": "Star ratings for Filament v4 and v5: a form field, table column, infolist entry and average summarizer. Half stars, keyboard and screen-reader support, drop-in for mokhosh/filament-rating.",
+    "description": "Star ratings for Filament v4 and v5: a form field, a table column you can rate from, an infolist entry, a filter, and average and distribution summarizers. Half stars, keyboard and screen-reader support, drop-in for mokhosh/filament-rating.",
     "keywords": [
         "packstub",
         "laravel",
