@@ -159,7 +159,7 @@ RatingFilter::make('rating')->stars(10);
 RatingFilter::make('rating')->exact();           // 5 stars, 4 stars, …
 ```
 
-`RatingFilter` is a `SelectFilter`, so its options work as usual (`label()`, `default()`, `query()`). With `exact()`, half ratings count toward the star they fill (3.5 matches 3).
+`RatingFilter` is a `SelectFilter`, so its options work as usual (`label()`, `default()`, `query()`). With `exact()`, half ratings count toward the star below (3.5 matches 3), and 0.5 toward 1.
 
 ### Average summarizer
 
@@ -187,7 +187,7 @@ RatingColumn::make('rating')
     ->summarize(RatingDistribution::make()); // ->percentages() for "40%" instead of counts
 ```
 
-Pass both summarizers (`->summarize([RatingAverage::make(), RatingDistribution::make()])`) to show the average above the bars. `RatingDistribution` draws a bar for each rating from the highest down, with its count (or share with `percentages()`). Half ratings count toward the star they fill, and a zero row is added with `allowZero()`. It takes the column's stars, colors (including `colors()`), icon and labels.
+Pass both summarizers (`->summarize([RatingAverage::make(), RatingDistribution::make()])`) to show the average above the bars. `RatingDistribution` draws a bar for each rating from the highest down, with its count (or share with `percentages()`). Half ratings count toward the star below (3.5 as 3, 0.5 as 1), and a zero row is added with `allowZero()`. It takes the column's stars, colors (including `colors()`), icon and labels.
 
 ### Infolist entry
 

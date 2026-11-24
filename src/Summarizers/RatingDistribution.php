@@ -15,7 +15,7 @@ use Packstub\FilamentRating\Concerns\InheritsRatingColumn;
 
 /**
  * How many records have each rating, as bars from the highest rating down. Half ratings count toward
- * the star they fill (3.5 counts as 3). On a RatingColumn it inherits the stars, colors, icon and labels.
+ * the star below (3.5 counts as 3), and 0.5 toward 1. On a RatingColumn it inherits the stars, colors, icon and labels.
  */
 class RatingDistribution extends Summarizer
 {
@@ -73,7 +73,10 @@ class RatingDistribution extends Summarizer
                 continue;
             }
 
-            $star = (int) floor(max(0, min((float) $value, $this->getStars())));
+            $value = max(0, min((float) $value, $this->getStars()));
+
+            // Only a real zero lands on the "no stars" row: 0.5 counts toward 1.
+            $star = $value > 0 ? max(1, (int) floor($value)) : 0;
             $distribution[$star] = ($distribution[$star] ?? 0) + (int) $row['aggregate'];
         }
 
@@ -87,9 +90,11 @@ class RatingDistribution extends Summarizer
     {
         $state = $this->getState();
         $counts = is_array($state) ? $state : [];
-        $total = array_sum($counts);
 
         $ratings = range($this->getStars(), $this->shouldAllowZero() ? 0 : 1);
+
+        // Shares of the rows shown, so they add up to 100% even when zeros are stored without allowZero().
+        $total = array_sum(array_intersect_key($counts, array_flip($ratings)));
         $rows = [];
 
         foreach ($ratings as $rating) {

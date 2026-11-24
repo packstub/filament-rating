@@ -35,7 +35,7 @@ class RatingFilter extends SelectFilter
     }
 
     /**
-     * Match one rating exactly instead of "and up". Half ratings count toward the star they fill (3.5 matches 3).
+     * Match one rating exactly instead of "and up". Half ratings count toward the star below (3.5 matches 3), and 0.5 toward 1.
      */
     public function exact(bool|Closure $condition = true): static
     {
@@ -81,14 +81,14 @@ class RatingFilter extends SelectFilter
             return $query;
         }
 
+        $value = (int) $value;
         $column = $query->qualifyColumn($this->getAttribute());
 
-        if (! $this->isExact()) {
-            return $query->where($column, '>=', (int) $value);
-        }
+        // "1 star" takes every rating above zero, so a 0.5 is found too.
+        $query = ($value <= 1)
+            ? $query->where($column, '>', 0)
+            : $query->where($column, '>=', $value);
 
-        return $query
-            ->where($column, '>=', (int) $value)
-            ->where($column, '<', ((int) $value) + 1);
+        return $this->isExact() ? $query->where($column, '<', $value + 1) : $query;
     }
 }
