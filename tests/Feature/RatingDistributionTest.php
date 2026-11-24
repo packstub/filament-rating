@@ -44,6 +44,21 @@ it('shows percentages, a zero row and labels', function () {
         ->toContain('2 stars (Okay):');
 });
 
+it('counts a 0.5 rating as one star and leaves stored zeros out without allowZero()', function () {
+    foreach ([0, 0.5, 1, 2] as $score) {
+        Review::create(['title' => 'Review', 'score' => $score]);
+    }
+
+    $html = reviewsTable(fn () => [
+        TextColumn::make('title'),
+        RatingColumn::make('score')->stars(2)->summarize(RatingDistribution::make()->percentages()),
+    ])->html();
+
+    preg_match_all('/<span class="fi-rating-distribution-count">\s*([\d%]+)/', $html, $counts);
+
+    expect($counts[1])->toBe(['33%', '67%']);
+});
+
 it('fills each row with its own color from colors()', function () {
     Review::create(['title' => 'Review', 'score' => 5]);
 
