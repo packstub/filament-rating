@@ -21,7 +21,7 @@ It is also a drop-in replacement for [`mokhosh/filament-rating`](https://github.
 
 | Plugin | Filament | Livewire | Laravel | PHP |
 | --- | --- | --- | --- | --- |
-| 0.x | 4.x, 5.x | 3.x, 4.x | 11.x – 13.x | 8.2+ |
+| 1.x | 4.x, 5.x | 3.x, 4.x | 11.x – 13.x | 8.2+ |
 
 ## Installation
 

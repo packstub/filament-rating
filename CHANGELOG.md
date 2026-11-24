@@ -2,12 +2,13 @@
 
 All notable changes to `packstub/filament-rating` are documented here.
 
-## Unreleased
+## 1.0.0 — Unreleased
 
-- A half-star rating of 0.5 counts as one star in `RatingDistribution` and `RatingFilter` (it was left out of both), and the distribution's percentages add up to 100%
-- Each bar and star of `RatingDistribution` takes its own color from `colors()` (they all used the base color)
-- A shorter Features list in the docs, and screenshots that show one feature each
-- `composer.json`'s homepage points at the package's page on packstub.dev
+The first stable release: the field, the columns, the entry, the filter and the summarizers now follow semantic versioning. Coming from 0.2, there is nothing to change.
+
+- `RatingDistribution` colors each bar and star by its rating with `colors()` (they all used the base color)
+- A 0.5 rating counts as one star in `RatingDistribution` and `RatingFilter` (it was left out of both), and the distribution's percentages add up to 100%
+- Docs with a screenshot for each feature, and Packagist links to the plugin's page on packstub.dev
 
 ## 0.2.0 — 2026-09-30
 
