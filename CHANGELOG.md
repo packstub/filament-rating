@@ -2,7 +2,7 @@
 
 All notable changes to `packstub/filament-rating` are documented here.
 
-## 1.0.0 — Unreleased
+## 1.0.0 — 2026-11-25
 
 The first stable release: the field, the columns, the entry, the filter and the summarizers now follow semantic versioning. The PHP namespace is now `Packstub\Rating`.
 
