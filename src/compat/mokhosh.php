@@ -1,10 +1,10 @@
 <?php
 
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\Components\Rating;
-use Packstub\FilamentRating\Entries\RatingEntry;
-use Packstub\FilamentRating\FilamentRatingPlugin;
-use Packstub\FilamentRating\RatingTheme;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\Components\Rating;
+use Packstub\Rating\Entries\RatingEntry;
+use Packstub\Rating\FilamentRatingPlugin;
+use Packstub\Rating\RatingTheme;
 
 /*
  * Drop-in compatibility with mokhosh/filament-rating: code that still imports

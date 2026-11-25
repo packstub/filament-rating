@@ -1,11 +1,11 @@
 <?php
 
 use Filament\Tables\Columns\TextColumn;
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\Components\Rating;
-use Packstub\FilamentRating\Entries\RatingEntry;
-use Packstub\FilamentRating\Summarizers\RatingAverage;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\Components\Rating;
+use Packstub\Rating\Entries\RatingEntry;
+use Packstub\Rating\Summarizers\RatingAverage;
+use Packstub\Rating\Tests\Fixtures\Review;
 
 $labels = [1 => 'Poor', 2 => 'Fair', 3 => 'Good', 4 => 'Very good', 5 => 'Excellent'];
 

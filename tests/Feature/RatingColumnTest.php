@@ -1,10 +1,10 @@
 <?php
 
 use Filament\Tables\Columns\TextColumn;
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\RatingTheme;
-use Packstub\FilamentRating\Summarizers\RatingAverage;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\RatingTheme;
+use Packstub\Rating\Summarizers\RatingAverage;
+use Packstub\Rating\Tests\Fixtures\Review;
 
 it('renders the column the way the TQM feedback table uses it', function () {
     $reviews = collect([

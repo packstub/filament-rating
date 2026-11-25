@@ -1,9 +1,9 @@
 <?php
 
 use Filament\Tables\Columns\TextColumn;
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\Summarizers\RatingDistribution;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\Summarizers\RatingDistribution;
+use Packstub\Rating\Tests\Fixtures\Review;
 
 it('counts the records per rating from the highest down', function () {
     foreach ([5, 5, 4, 3.5, 1, null] as $score) {

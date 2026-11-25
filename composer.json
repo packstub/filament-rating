@@ -54,7 +54,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Packstub\\FilamentRating\\": "src/"
+            "Packstub\\Rating\\": "src/"
         },
         "files": [
             "src/compat/mokhosh.php"
@@ -62,7 +62,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Packstub\\FilamentRating\\Tests\\": "tests/"
+            "Packstub\\Rating\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -83,7 +83,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Packstub\\FilamentRating\\FilamentRatingServiceProvider"
+                "Packstub\\Rating\\FilamentRatingServiceProvider"
             ]
         }
     },

@@ -1,17 +1,17 @@
 <?php
 
-namespace Packstub\FilamentRating\Summarizers;
+namespace Packstub\Rating\Summarizers;
 
 use Closure;
 use Filament\Tables\Columns\Summarizers\Summarizer;
 use Illuminate\Database\Query\Builder;
-use Packstub\FilamentRating\Concerns\HasColors;
-use Packstub\FilamentRating\Concerns\HasIcons;
-use Packstub\FilamentRating\Concerns\HasLabels;
-use Packstub\FilamentRating\Concerns\HasSize;
-use Packstub\FilamentRating\Concerns\HasStars;
-use Packstub\FilamentRating\Concerns\HasTheme;
-use Packstub\FilamentRating\Concerns\InheritsRatingColumn;
+use Packstub\Rating\Concerns\HasColors;
+use Packstub\Rating\Concerns\HasIcons;
+use Packstub\Rating\Concerns\HasLabels;
+use Packstub\Rating\Concerns\HasSize;
+use Packstub\Rating\Concerns\HasStars;
+use Packstub\Rating\Concerns\HasTheme;
+use Packstub\Rating\Concerns\InheritsRatingColumn;
 
 /**
  * How many records have each rating, as bars from the highest rating down. Half ratings count toward

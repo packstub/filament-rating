@@ -1,18 +1,18 @@
 <?php
 
-namespace Packstub\FilamentRating\Components;
+namespace Packstub\Rating\Components;
 
 use Filament\Forms\Components\Concerns\CanBeReadOnly;
 use Filament\Forms\Components\Field;
 use Filament\Schemas\Components\StateCasts\Contracts\StateCast;
 use Filament\Schemas\Components\StateCasts\NumberStateCast;
-use Packstub\FilamentRating\Concerns\HasColors;
-use Packstub\FilamentRating\Concerns\HasIcons;
-use Packstub\FilamentRating\Concerns\HasLabels;
-use Packstub\FilamentRating\Concerns\HasRatingInput;
-use Packstub\FilamentRating\Concerns\HasSize;
-use Packstub\FilamentRating\Concerns\HasStars;
-use Packstub\FilamentRating\Concerns\HasTheme;
+use Packstub\Rating\Concerns\HasColors;
+use Packstub\Rating\Concerns\HasIcons;
+use Packstub\Rating\Concerns\HasLabels;
+use Packstub\Rating\Concerns\HasRatingInput;
+use Packstub\Rating\Concerns\HasSize;
+use Packstub\Rating\Concerns\HasStars;
+use Packstub\Rating\Concerns\HasTheme;
 
 class Rating extends Field
 {

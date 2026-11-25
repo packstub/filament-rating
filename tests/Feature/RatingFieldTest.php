@@ -1,6 +1,6 @@
 <?php
 
-use Packstub\FilamentRating\Components\Rating;
+use Packstub\Rating\Components\Rating;
 
 it('renders in a standalone Livewire form the way the TQM feedback form uses it', function () {
     ratingForm(fn () => [

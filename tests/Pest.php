@@ -1,11 +1,11 @@
 <?php
 
 use Livewire\Features\SupportTesting\Testable;
-use Packstub\FilamentRating\Tests\Fixtures\RatingForm;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
-use Packstub\FilamentRating\Tests\Fixtures\ReviewInfolist;
-use Packstub\FilamentRating\Tests\Fixtures\ReviewsTable;
-use Packstub\FilamentRating\Tests\TestCase;
+use Packstub\Rating\Tests\Fixtures\RatingForm;
+use Packstub\Rating\Tests\Fixtures\Review;
+use Packstub\Rating\Tests\Fixtures\ReviewInfolist;
+use Packstub\Rating\Tests\Fixtures\ReviewsTable;
+use Packstub\Rating\Tests\TestCase;
 
 use function Pest\Livewire\livewire;
 

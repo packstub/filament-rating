@@ -1,9 +1,9 @@
 <?php
 
-namespace Packstub\FilamentRating\Concerns;
+namespace Packstub\Rating\Concerns;
 
 use Closure;
-use Packstub\FilamentRating\RatingTheme;
+use Packstub\Rating\RatingTheme;
 
 trait HasTheme
 {

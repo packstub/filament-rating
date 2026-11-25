@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating;
+namespace Packstub\Rating;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Css;

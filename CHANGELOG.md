@@ -4,7 +4,9 @@ All notable changes to `packstub/filament-rating` are documented here.
 
 ## 1.0.0 — Unreleased
 
-The first stable release: the field, the columns, the entry, the filter and the summarizers now follow semantic versioning. Coming from 0.2, there is nothing to change.
+The first stable release: the field, the columns, the entry, the filter and the summarizers now follow semantic versioning. The PHP namespace is now `Packstub\Rating`.
+
+**Upgrading:** replace `Packstub\FilamentRating\` with `Packstub\Rating\` in your imports (a search and replace). The old `Mokhosh\FilamentRating\...` imports keep working.
 
 - `RatingDistribution` colors each bar and star by its rating with `colors()` (they all used the base color)
 - A 0.5 rating counts as one star in `RatingDistribution` and `RatingFilter` (it was left out of both), and the distribution's percentages add up to 100%

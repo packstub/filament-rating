@@ -41,7 +41,7 @@ Outside a panel (a plain Livewire component using Filament forms), the assets lo
 ![The rating field in a Filament form: four stars hovered, green, with the label "Very good"](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/field.png)
 
 ```php
-use Packstub\FilamentRating\Components\Rating;
+use Packstub\Rating\Components\Rating;
 
 Rating::make('rating')
     ->required()
@@ -70,7 +70,7 @@ The field validates itself: `numeric`, `min` (0 or the first step), `max` (the n
 ![A products table: each product's average customer rating as partially filled stars with the value and the number of reviews, and a team score rated right in the table](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/products.png)
 
 ```php
-use Packstub\FilamentRating\Columns\RatingColumn;
+use Packstub\Rating\Columns\RatingColumn;
 
 RatingColumn::make('rating')
     ->sortable()
@@ -124,7 +124,7 @@ Each key is the lowest rating that uses its color; ratings below the lowest key 
 `RatingInputColumn` lets people rate records right in the table, like Filament's `ToggleColumn`. A click is validated (the same rules as the field) and saved to the record, and an invalid value is rolled back with the error shown on the stars.
 
 ```php
-use Packstub\FilamentRating\Columns\RatingInputColumn;
+use Packstub\Rating\Columns\RatingInputColumn;
 
 RatingInputColumn::make('rating')
     ->clearable()
@@ -139,7 +139,7 @@ It takes every column option (stars, half stars, colors, labels, icons, size) pl
 ![The reviews table filtered to "4 stars & up"](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/filter.png)
 
 ```php
-use Packstub\FilamentRating\Filters\RatingFilter;
+use Packstub\Rating\Filters\RatingFilter;
 
 RatingFilter::make('rating');                    // 5 stars, 4 stars & up, … 1 star & up
 RatingFilter::make('rating')->stars(10);
@@ -153,7 +153,7 @@ RatingFilter::make('rating')->exact();           // 5 stars, 4 stars, …
 ![The reviews table with its summary: the average rating as partly filled stars with the value](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/average.png)
 
 ```php
-use Packstub\FilamentRating\Summarizers\RatingAverage;
+use Packstub\Rating\Summarizers\RatingAverage;
 
 RatingColumn::make('rating')
     ->stars(10)
@@ -168,7 +168,7 @@ RatingColumn::make('rating')
 ![The reviews table with its summary: a bar per rating with its count, from five stars down](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/distribution.png)
 
 ```php
-use Packstub\FilamentRating\Summarizers\RatingDistribution;
+use Packstub\Rating\Summarizers\RatingDistribution;
 
 RatingColumn::make('rating')
     ->summarize(RatingDistribution::make()); // ->percentages() for "40%" instead of counts
@@ -181,7 +181,7 @@ Pass both summarizers (`->summarize([RatingAverage::make(), RatingDistribution::
 ![A review's page: the rating entry with its label, "Excellent"](https://raw.githubusercontent.com/packstub/art/main/filament-rating/docs/entry.png)
 
 ```php
-use Packstub\FilamentRating\Entries\RatingEntry;
+use Packstub\Rating\Entries\RatingEntry;
 
 RatingEntry::make('rating')
     ->showValue()
@@ -213,7 +213,7 @@ To change the icons everywhere, register their aliases in a service provider:
 
 ```php
 use Filament\Support\Facades\FilamentIcon;
-use Packstub\FilamentRating\RatingIcon;
+use Packstub\Rating\RatingIcon;
 
 FilamentIcon::register([
     RatingIcon::Star => 'heroicon-s-heart',
@@ -242,16 +242,16 @@ php artisan filament:assets
 ```
 
 1. Your existing `use Mokhosh\FilamentRating\...` imports keep working: the package aliases those five classes to its own. Aliases are created lazily and only when mokhosh itself isn't installed.
-2. When convenient, switch the imports to the new namespace (a search and replace of `Mokhosh\FilamentRating` with `Packstub\FilamentRating`).
+2. When convenient, switch the imports to the new namespace (a search and replace of `Mokhosh\FilamentRating` with `Packstub\Rating`).
 3. Delete the old published assets, `public/css/mokhosh` and `public/js/mokhosh`.
 
 | mokhosh v2 | packstub/filament-rating |
 | --- | --- |
-| `Mokhosh\FilamentRating\Components\Rating` | `Packstub\FilamentRating\Components\Rating` |
-| `Mokhosh\FilamentRating\Columns\RatingColumn` | `Packstub\FilamentRating\Columns\RatingColumn` |
-| `Mokhosh\FilamentRating\Entries\RatingEntry` | `Packstub\FilamentRating\Entries\RatingEntry` |
-| `Mokhosh\FilamentRating\RatingTheme` | `Packstub\FilamentRating\RatingTheme` (same cases) |
-| `Mokhosh\FilamentRating\FilamentRatingPlugin` | `Packstub\FilamentRating\FilamentRatingPlugin` (same id, optional) |
+| `Mokhosh\FilamentRating\Components\Rating` | `Packstub\Rating\Components\Rating` |
+| `Mokhosh\FilamentRating\Columns\RatingColumn` | `Packstub\Rating\Columns\RatingColumn` |
+| `Mokhosh\FilamentRating\Entries\RatingEntry` | `Packstub\Rating\Entries\RatingEntry` |
+| `Mokhosh\FilamentRating\RatingTheme` | `Packstub\Rating\RatingTheme` (same cases) |
+| `Mokhosh\FilamentRating\FilamentRatingPlugin` | `Packstub\Rating\FilamentRatingPlugin` (same id, optional) |
 | `stars(int)`, `getStars()`, `getStarsArray()` | same, also accepts a closure |
 | `allowZero()`, `shouldAllowZero()` | same |
 | `size('xs'…'xl')`, `getSize()` | same sizes in pixels, plus `2xl` and `IconSize` |

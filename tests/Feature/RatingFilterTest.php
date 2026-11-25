@@ -1,8 +1,8 @@
 <?php
 
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\Filters\RatingFilter;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\Filters\RatingFilter;
+use Packstub\Rating\Tests\Fixtures\Review;
 
 it('keeps ratings from the chosen star and up', function () {
     $reviews = collect([1, 3, 4, 5, null])->map(fn (?int $rating) => Review::create(['title' => "Rated {$rating}", 'rating' => $rating]));

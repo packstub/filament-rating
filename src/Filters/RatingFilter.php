@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating\Filters;
+namespace Packstub\Rating\Filters;
 
 use Closure;
 use Filament\Tables\Filters\SelectFilter;

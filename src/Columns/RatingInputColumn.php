@@ -1,11 +1,11 @@
 <?php
 
-namespace Packstub\FilamentRating\Columns;
+namespace Packstub\Rating\Columns;
 
 use Filament\Tables\Columns\Concerns\CanBeValidated;
 use Filament\Tables\Columns\Concerns\CanUpdateState;
 use Filament\Tables\Columns\Contracts\Editable;
-use Packstub\FilamentRating\Concerns\HasRatingInput;
+use Packstub\Rating\Concerns\HasRatingInput;
 
 /**
  * Rate a record straight from the table: a click saves the new rating, like Filament's ToggleColumn.

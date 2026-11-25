@@ -1,12 +1,12 @@
 <?php
 
-namespace Packstub\FilamentRating\Concerns;
+namespace Packstub\Rating\Concerns;
 
 use BackedEnum;
 use Closure;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Contracts\Support\Htmlable;
-use Packstub\FilamentRating\RatingIcon;
+use Packstub\Rating\RatingIcon;
 
 trait HasIcons
 {
