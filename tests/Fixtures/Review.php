@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating\Tests\Fixtures;
+namespace Packstub\Rating\Tests\Fixtures;
 
 use Illuminate\Database\Eloquent\Model;
 

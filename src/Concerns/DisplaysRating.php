@@ -1,10 +1,10 @@
 <?php
 
-namespace Packstub\FilamentRating\Concerns;
+namespace Packstub\Rating\Concerns;
 
 use BackedEnum;
 use Closure;
-use Packstub\FilamentRating\RatingTheme;
+use Packstub\Rating\RatingTheme;
 
 /**
  * Read-only rendering shared by the column, the entry and the summarizer.

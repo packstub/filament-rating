@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating\Concerns;
+namespace Packstub\Rating\Concerns;
 
 use Closure;
 use Filament\Support\Enums\IconSize;

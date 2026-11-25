@@ -1,7 +1,7 @@
 <?php
 
-use Packstub\FilamentRating\Columns\RatingInputColumn;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
+use Packstub\Rating\Columns\RatingInputColumn;
+use Packstub\Rating\Tests\Fixtures\Review;
 
 it('renders interactive stars in the cell', function () {
     $review = Review::create(['title' => 'Great', 'rating' => 4]);

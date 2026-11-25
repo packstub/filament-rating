@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating;
+namespace Packstub\Rating;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;

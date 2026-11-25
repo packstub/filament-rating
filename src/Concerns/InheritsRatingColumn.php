@@ -1,11 +1,11 @@
 <?php
 
-namespace Packstub\FilamentRating\Concerns;
+namespace Packstub\Rating\Concerns;
 
 use BackedEnum;
 use Illuminate\Contracts\Support\Htmlable;
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\RatingTheme;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\RatingTheme;
 
 /**
  * Summarizer defaults taken from the RatingColumn they summarize: stars, colors, icons, size and labels.

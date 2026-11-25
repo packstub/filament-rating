@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating;
+namespace Packstub\Rating;
 
 /**
  * Icon aliases, overridable app-wide with `FilamentIcon::register([RatingIcon::Star => ...])`.

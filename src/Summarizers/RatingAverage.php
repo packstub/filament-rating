@@ -1,16 +1,16 @@
 <?php
 
-namespace Packstub\FilamentRating\Summarizers;
+namespace Packstub\Rating\Summarizers;
 
 use Filament\Tables\Columns\Summarizers\Average;
-use Packstub\FilamentRating\Concerns\DisplaysRating;
-use Packstub\FilamentRating\Concerns\HasColors;
-use Packstub\FilamentRating\Concerns\HasIcons;
-use Packstub\FilamentRating\Concerns\HasLabels;
-use Packstub\FilamentRating\Concerns\HasSize;
-use Packstub\FilamentRating\Concerns\HasStars;
-use Packstub\FilamentRating\Concerns\HasTheme;
-use Packstub\FilamentRating\Concerns\InheritsRatingColumn;
+use Packstub\Rating\Concerns\DisplaysRating;
+use Packstub\Rating\Concerns\HasColors;
+use Packstub\Rating\Concerns\HasIcons;
+use Packstub\Rating\Concerns\HasLabels;
+use Packstub\Rating\Concerns\HasSize;
+use Packstub\Rating\Concerns\HasStars;
+use Packstub\Rating\Concerns\HasTheme;
+use Packstub\Rating\Concerns\InheritsRatingColumn;
 
 /**
  * The column's average as stars. On a RatingColumn it inherits the stars, colors, icons, size and labels.

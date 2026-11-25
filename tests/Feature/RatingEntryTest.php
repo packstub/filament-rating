@@ -1,7 +1,7 @@
 <?php
 
-use Packstub\FilamentRating\Entries\RatingEntry;
-use Packstub\FilamentRating\Tests\Fixtures\Review;
+use Packstub\Rating\Entries\RatingEntry;
+use Packstub\Rating\Tests\Fixtures\Review;
 
 it('renders the entry the way the TQM feedback view uses it', function () {
     $review = Review::create(['title' => 'Great', 'rating' => 4]);

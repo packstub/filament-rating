@@ -1,15 +1,15 @@
 <?php
 
-namespace Packstub\FilamentRating\Entries;
+namespace Packstub\Rating\Entries;
 
 use Filament\Infolists\Components\Entry;
-use Packstub\FilamentRating\Concerns\DisplaysRating;
-use Packstub\FilamentRating\Concerns\HasColors;
-use Packstub\FilamentRating\Concerns\HasIcons;
-use Packstub\FilamentRating\Concerns\HasLabels;
-use Packstub\FilamentRating\Concerns\HasSize;
-use Packstub\FilamentRating\Concerns\HasStars;
-use Packstub\FilamentRating\Concerns\HasTheme;
+use Packstub\Rating\Concerns\DisplaysRating;
+use Packstub\Rating\Concerns\HasColors;
+use Packstub\Rating\Concerns\HasIcons;
+use Packstub\Rating\Concerns\HasLabels;
+use Packstub\Rating\Concerns\HasSize;
+use Packstub\Rating\Concerns\HasStars;
+use Packstub\Rating\Concerns\HasTheme;
 
 class RatingEntry extends Entry
 {

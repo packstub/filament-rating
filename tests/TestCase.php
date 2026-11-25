@@ -1,6 +1,6 @@
 <?php
 
-namespace Packstub\FilamentRating\Tests;
+namespace Packstub\Rating\Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
@@ -16,7 +16,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Packstub\FilamentRating\FilamentRatingServiceProvider;
+use Packstub\Rating\FilamentRatingServiceProvider;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 
 abstract class TestCase extends Orchestra

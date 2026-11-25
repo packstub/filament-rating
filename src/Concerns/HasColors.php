@@ -1,9 +1,9 @@
 <?php
 
-namespace Packstub\FilamentRating\Concerns;
+namespace Packstub\Rating\Concerns;
 
 use Closure;
-use Packstub\FilamentRating\Support\RatingColor;
+use Packstub\Rating\Support\RatingColor;
 
 trait HasColors
 {

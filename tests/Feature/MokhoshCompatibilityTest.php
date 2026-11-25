@@ -4,11 +4,11 @@ use Filament\Forms\Components\Field;
 use Filament\Infolists\Components\Entry;
 use Filament\Support\Enums\IconSize;
 use Filament\Tables\Columns\Column;
-use Packstub\FilamentRating\Columns\RatingColumn;
-use Packstub\FilamentRating\Components\Rating;
-use Packstub\FilamentRating\Entries\RatingEntry;
-use Packstub\FilamentRating\FilamentRatingPlugin;
-use Packstub\FilamentRating\RatingTheme;
+use Packstub\Rating\Columns\RatingColumn;
+use Packstub\Rating\Components\Rating;
+use Packstub\Rating\Entries\RatingEntry;
+use Packstub\Rating\FilamentRatingPlugin;
+use Packstub\Rating\RatingTheme;
 
 dataset('components', [
     'field' => fn () => Rating::make('rating'),
